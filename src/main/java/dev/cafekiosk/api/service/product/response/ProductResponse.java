@@ -1,4 +1,4 @@
-package dev.cafekiosk.api.product.response;
+package dev.cafekiosk.api.service.product.response;
 
 import dev.cafekiosk.domain.product.Product;
 import dev.cafekiosk.domain.product.ProductSellingStatus;
