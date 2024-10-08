@@ -13,4 +13,7 @@ public enum ProductType {
 
     private final String text;
 
+    public static boolean containStockType(ProductType productType) {
+        return productType.equals(BOTTLE) || productType.equals(BAKERY);
+    }
 }

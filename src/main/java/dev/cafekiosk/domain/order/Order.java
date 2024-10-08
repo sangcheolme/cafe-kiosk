@@ -44,8 +44,14 @@ public class Order extends BaseEntity {
     private Order(List<Product> products, LocalDateTime registeredDateTime) {
         this.registeredDateTime = registeredDateTime;
         this.orderStatus = OrderStatus.INIT;
-        this.orderProducts = products.stream().map(OrderProduct::new).toList();
+        this.orderProducts = addOrderProduct(products);
         this.totalPrice = calculateTotalPrice();
+    }
+
+    private List<OrderProduct> addOrderProduct(List<Product> products) {
+        return products.stream()
+                .map(product -> new OrderProduct(product, this))
+                .toList();
     }
 
     public static Order create(List<Product> products, LocalDateTime registeredDateTime) {

@@ -63,7 +63,6 @@ class ProductRepositoryTest {
                 );
     }
 
-
     private Product createProduct(String productNumber, ProductType type, ProductSellingStatus sellingStatus, String name, int price) {
         return Product.builder()
                 .productNumber(productNumber)

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dev.cafekiosk.api.controller.order.request.OrderCreateRequest;
 import dev.cafekiosk.api.service.order.OrderService;
+import dev.cafekiosk.api.service.order.response.OrderResponse;
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -17,8 +18,8 @@ public class OrderController {
     private final OrderService orderService;
 
     @PostMapping("/api/v1/orders")
-    public void createOrder(@RequestBody OrderCreateRequest orderCreateRequest) {
-        orderService.createOrder(orderCreateRequest, LocalDateTime.now());
+    public OrderResponse createOrder(@RequestBody OrderCreateRequest orderCreateRequest) {
+        return orderService.createOrder(orderCreateRequest, LocalDateTime.now());
     }
 
 }
