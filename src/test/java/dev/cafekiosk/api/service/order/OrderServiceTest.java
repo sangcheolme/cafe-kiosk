@@ -13,7 +13,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.cafekiosk.api.controller.order.request.OrderCreateRequest;
+import dev.cafekiosk.api.service.order.request.OrderCreateServiceRequest;
 import dev.cafekiosk.api.service.order.response.OrderResponse;
 import dev.cafekiosk.api.service.product.response.ProductResponse;
 import dev.cafekiosk.domain.product.Product;
@@ -45,13 +45,13 @@ class OrderServiceTest {
         Product product2 = createProduct("002", HANDMADE, 4500);
         Product product3 = createProduct("003", BAKERY, 7000);
         productRepository.saveAll(List.of(product1, product2, product3));
-        OrderCreateRequest orderCreateRequest = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "002"))
                 .build();
 
         // when
         LocalDateTime registeredDateTime = LocalDateTime.now();
-        OrderResponse orderResponse = orderService.createOrder(orderCreateRequest, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
 
         // then
         assertThat(orderResponse.getId()).isNotNull();
@@ -74,13 +74,13 @@ class OrderServiceTest {
         Product product2 = createProduct("002", HANDMADE, 4500);
         Product product3 = createProduct("003", BAKERY, 7000);
         productRepository.saveAll(List.of(product1, product2, product3));
-        OrderCreateRequest orderCreateRequest = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "001", "002"))
                 .build();
 
         // when
         LocalDateTime registeredDateTime = LocalDateTime.now();
-        OrderResponse orderResponse = orderService.createOrder(orderCreateRequest, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
 
         // then
         assertThat(orderResponse.getId()).isNotNull();
@@ -109,13 +109,13 @@ class OrderServiceTest {
         Stock stock2 = Stock.create("002", 2);
         stockRepository.saveAll(List.of(stock1, stock2));
 
-        OrderCreateRequest orderCreateRequest = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "001", "002", "003"))
                 .build();
 
         // when
         LocalDateTime registeredDateTime = LocalDateTime.now();
-        OrderResponse orderResponse = orderService.createOrder(orderCreateRequest, registeredDateTime);
+        OrderResponse orderResponse = orderService.createOrder(request, registeredDateTime);
 
         // then
         assertThat(orderResponse.getId()).isNotNull();
@@ -154,13 +154,13 @@ class OrderServiceTest {
         stockRepository.saveAll(List.of(stock1, stock2));
 
         LocalDateTime registeredDateTime = LocalDateTime.now();
-        OrderCreateRequest orderCreateRequest = OrderCreateRequest.builder()
+        OrderCreateServiceRequest request = OrderCreateServiceRequest.builder()
                 .productNumbers(List.of("001", "001", "002", "003"))
                 .build();
 
         // when
         // then
-        assertThatThrownBy(() -> orderService.createOrder(orderCreateRequest, registeredDateTime))
+        assertThatThrownBy(() -> orderService.createOrder(request, registeredDateTime))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("재고 수량이 부족합니다.");
     }

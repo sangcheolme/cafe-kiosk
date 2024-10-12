@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import dev.cafekiosk.api.controller.order.request.OrderCreateRequest;
+import dev.cafekiosk.api.service.order.request.OrderCreateServiceRequest;
 import dev.cafekiosk.api.service.order.response.OrderResponse;
 import dev.cafekiosk.domain.order.Order;
 import dev.cafekiosk.domain.order.OrderRepository;
@@ -30,7 +30,7 @@ public class OrderService {
     private final StockRepository stockRepository;
 
     @Transactional
-    public OrderResponse createOrder(OrderCreateRequest orderCreateRequest, LocalDateTime registeredDateTime) {
+    public OrderResponse createOrder(OrderCreateServiceRequest orderCreateRequest, LocalDateTime registeredDateTime) {
         List<String> productNumbers = orderCreateRequest.getProductNumbers();
         List<Product> products = findProductsBy(productNumbers);
 
