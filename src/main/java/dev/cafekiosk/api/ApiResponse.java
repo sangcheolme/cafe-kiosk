@@ -7,10 +7,10 @@ import lombok.Getter;
 @Getter
 public class ApiResponse<T> {
 
-    private int code;
-    private HttpStatus status;
-    private String message;
-    private T data;
+    private final int code;
+    private final HttpStatus status;
+    private final String message;
+    private final T data;
 
     private ApiResponse(HttpStatus httpStatus, String message, T data) {
         this.code = httpStatus.value();
