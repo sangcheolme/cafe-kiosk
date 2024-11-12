@@ -160,7 +160,7 @@ class ProductControllerTest {
                 .andExpect(jsonPath("$.data").isEmpty());
     }
 
-    @DisplayName("")
+    @DisplayName("판매 상품을 가져온다.")
     @Test
     void getSellingProducts() throws Exception {
         // given

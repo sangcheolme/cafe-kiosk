@@ -9,6 +9,8 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import lombok.RequiredArgsConstructor;
+
 import dev.cafekiosk.api.service.order.request.OrderCreateServiceRequest;
 import dev.cafekiosk.api.service.order.response.OrderResponse;
 import dev.cafekiosk.domain.order.Order;
@@ -18,7 +20,6 @@ import dev.cafekiosk.domain.product.ProductRepository;
 import dev.cafekiosk.domain.product.ProductType;
 import dev.cafekiosk.domain.stock.Stock;
 import dev.cafekiosk.domain.stock.StockRepository;
-import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)

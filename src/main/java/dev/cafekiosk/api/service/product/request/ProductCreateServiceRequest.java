@@ -1,11 +1,12 @@
 package dev.cafekiosk.api.service.product.request;
 
-import dev.cafekiosk.domain.product.Product;
-import dev.cafekiosk.domain.product.ProductSellingStatus;
-import dev.cafekiosk.domain.product.ProductType;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import dev.cafekiosk.domain.product.Product;
+import dev.cafekiosk.domain.product.ProductSellingStatus;
+import dev.cafekiosk.domain.product.ProductType;
 
 @Getter
 @NoArgsConstructor

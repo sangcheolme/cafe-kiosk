@@ -7,12 +7,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToOne;
 
-import dev.cafekiosk.domain.BaseEntity;
-import dev.cafekiosk.domain.order.Order;
-import dev.cafekiosk.domain.product.Product;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import dev.cafekiosk.domain.BaseEntity;
+import dev.cafekiosk.domain.order.Order;
+import dev.cafekiosk.domain.product.Product;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
