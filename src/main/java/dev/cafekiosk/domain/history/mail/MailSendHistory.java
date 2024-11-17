@@ -33,4 +33,5 @@ public class MailSendHistory extends BaseEntity {
         this.subject = subject;
         this.content = content;
     }
+
 }

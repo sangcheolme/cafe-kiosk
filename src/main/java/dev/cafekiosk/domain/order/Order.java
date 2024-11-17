@@ -70,4 +70,5 @@ public class Order extends BaseEntity {
                 .mapToInt(OrderProduct::getProductPrice)
                 .sum();
     }
+
 }

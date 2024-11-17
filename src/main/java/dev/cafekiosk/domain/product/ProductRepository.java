@@ -18,4 +18,5 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     @Query(value = "SELECT p.product_number FROM product p ORDER BY id DESC LIMIT 1", nativeQuery = true)
     String findLatestProductNumber();
+
 }

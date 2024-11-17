@@ -86,4 +86,5 @@ public class OrderService {
         return stockProductNumbers.stream()
                 .collect(Collectors.groupingBy(p -> p, Collectors.counting()));
     }
+
 }

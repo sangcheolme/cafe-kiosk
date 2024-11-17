@@ -8,28 +8,12 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import dev.cafekiosk.ControllerTestSupport;
 import dev.cafekiosk.api.controller.order.request.OrderCreateRequest;
-import dev.cafekiosk.api.service.order.OrderService;
 
-@WebMvcTest(controllers = OrderController.class)
-class OrderControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    @MockBean
-    private OrderService orderService;
-
-    @Autowired
-    private ObjectMapper objectMapper;
+class OrderControllerTest extends ControllerTestSupport {
 
     @DisplayName("상품 번호 리스트를 통해 주문을 요청한다.")
     @Test

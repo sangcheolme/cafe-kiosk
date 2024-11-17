@@ -16,4 +16,5 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
     List<Order> findOrdersBy(@Param("startDateTime") LocalDateTime startDateTime,
                              @Param("endDateTime") LocalDateTime endDateTime,
                              @Param("orderStatus") OrderStatus orderStatus);
+
 }

@@ -13,10 +13,8 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 
-import dev.cafekiosk.client.MailSendClient;
+import dev.cafekiosk.IntegrationTestSupport;
 import dev.cafekiosk.domain.history.mail.MailSendHistory;
 import dev.cafekiosk.domain.history.mail.MailSendHistoryRepository;
 import dev.cafekiosk.domain.order.Order;
@@ -28,8 +26,7 @@ import dev.cafekiosk.domain.product.ProductRepository;
 import dev.cafekiosk.domain.product.ProductSellingStatus;
 import dev.cafekiosk.domain.product.ProductType;
 
-@SpringBootTest
-class OrderStaticsServiceTest {
+class OrderStaticsServiceTest extends IntegrationTestSupport {
 
     @Autowired
     private OrderStaticsService orderStaticsService;
@@ -45,9 +42,6 @@ class OrderStaticsServiceTest {
 
     @Autowired
     private MailSendHistoryRepository mailSendHistoryRepository;
-
-    @MockBean
-    private MailSendClient mailSendClient;
 
     @AfterEach
     void tearDown() {

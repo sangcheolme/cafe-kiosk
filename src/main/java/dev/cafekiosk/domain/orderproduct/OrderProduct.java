@@ -38,4 +38,5 @@ public class OrderProduct extends BaseEntity {
     public int getProductPrice() {
         return product.getPrice();
     }
+
 }

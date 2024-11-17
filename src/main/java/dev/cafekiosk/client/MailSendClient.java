@@ -25,4 +25,5 @@ public class MailSendClient {
     public void testC() {
         log.info("testC");
     }
+
 }

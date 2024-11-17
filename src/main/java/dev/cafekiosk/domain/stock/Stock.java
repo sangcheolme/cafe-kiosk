@@ -43,4 +43,5 @@ public class Stock extends BaseEntity {
     private boolean isQuantityLessThan(int quantity) {
         return this.quantity < quantity;
     }
+
 }

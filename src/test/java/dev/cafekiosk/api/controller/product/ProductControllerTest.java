@@ -11,36 +11,13 @@ import java.util.List;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
-import org.springframework.test.web.servlet.MockMvc;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
+import dev.cafekiosk.ControllerTestSupport;
 import dev.cafekiosk.api.controller.product.request.ProductCreateRequest;
-import dev.cafekiosk.api.service.product.ProductService;
 import dev.cafekiosk.api.service.product.response.ProductResponse;
 
-// 컨트롤러 관련 빈들만 사용 -> 가벼움
-@WebMvcTest(controllers = ProductController.class)
-class ProductControllerTest {
-
-    @Autowired
-    private MockMvc mockMvc;
-
-    /**
-     * org.springframework.boot.test.mock.mockito.MockBean;
-     * mockito 라이브러리 사용
-     * productService는 bean으로 관리가 되고 있다.
-     * 컨테이너에 mockito로 만들어진 productService mock 객체를 넣어준다.
-     */
-    @MockBean
-    private ProductService productService;
-
-    @Autowired
-    private ObjectMapper objectMapper;
+class ProductControllerTest extends ControllerTestSupport {
 
     @DisplayName("신규 상품을 등록한다.")
     @Test

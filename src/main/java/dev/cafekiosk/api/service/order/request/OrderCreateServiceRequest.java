@@ -16,4 +16,5 @@ public class OrderCreateServiceRequest {
     public OrderCreateServiceRequest(List<String> productNumbers) {
         this.productNumbers = productNumbers;
     }
+
 }

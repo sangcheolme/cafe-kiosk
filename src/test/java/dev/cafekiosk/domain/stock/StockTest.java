@@ -31,4 +31,5 @@ class StockTest {
         assertThatThrownBy(() -> stock.reduceQuantity(2)).isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("재고 수량이 부족합니다.");
     }
+
 }
